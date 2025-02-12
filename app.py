@@ -28,7 +28,7 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 
 
-model_url = 'https://github.com/ThamilezaiAnanthakumar/Skin_Disease_Prediction_web_app/commits/v2.3.4'
+model_url = 'https://github.com/ThamilezaiAnanthakumar/Skin_Disease_Prediction_web_app/releases/download/v2.3.4/skin_disease_2.h5'
 
 # Path where the model will be saved locally
 model_path = 'skin_disease_2.h5'
