@@ -28,12 +28,28 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 
 
+model_url = 'https://github.com/ThamilezaiAnanthakumar/Skin_Disease_Prediction_web_app/releases/download/v2.3.4/skin_disease_2.h5'
+
+# Path where the model will be saved locally
+model_path = 'skin_disease_2.h5'
+
+# Download the model if it doesn't exist locally
+if not os.path.exists(model_path):
+    st.write("Downloading the model from GitHub...")
+    response = requests.get(model_url)
+    
+    # Check if the request was successful
+    if response.status_code == 200:
+        with open(model_path, 'wb') as f:
+            f.write(response.content)
+        st.write("Model downloaded successfully!")
+    else:
+        st.error("Failed to download the model. Please check the model URL.")
 
 
 
 
-
-model_path='/content/skin_disease_2.h5'
+#model_path='/content/skin_disease_2.h5' -- in cloab path
 # Load the trained model
 #model = load_model(model_path)  # Ensure this file exists in the directory
 model = tf.keras.models.load_model(model_path)
